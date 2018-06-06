@@ -8,19 +8,19 @@ export class ApiService {
 
   private name:string;
     
-    private api = "a40e9bfe64b6df151b65ba751d97417eac26f4cd";
-
+    private ID = "6051dcf4774275c44572";
+    private Secret = "e9e1ab7639bb901db78db37f3762a75ee1fff356"
     constructor(private http:Http) {
     
-    this.name="Benard18";
+    // this.name="Benard18";
   }
   getUsername(){
-    return this.http.get("https://api.github.com/users/" + this.name + "?access_token=" +
-     this.api).pipe(map(res => res.json()))
+    return this.http.get("https://api.github.com/users/" + this.name + "?client_id=" +
+     this.ID + "&client_secret=" + this.Secret).pipe(map(res => res.json()))
   }
   getRepos(){
-    return this.http.get("https://api.github.com/users/" + this.name + "/repos?access_token=" +
-     this.api ).pipe(map(res => res.json()))
+    return this.http.get("https://api.github.com/users/" + this.name + "/repos?client_id=" +
+     this.ID + "&client_secret=" + this.Secret).pipe(map(res => res.json()))
   }
   updateUsername(name:string){
     this.name=name;
